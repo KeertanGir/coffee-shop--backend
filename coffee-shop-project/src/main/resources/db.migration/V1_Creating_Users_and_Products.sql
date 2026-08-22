@@ -6,6 +6,7 @@ CREATE TABLE users
     password   VARCHAR(255)          NOT NULL,
     user_phone VARCHAR(255)          NOT NULL,
     user_role  VARCHAR(255)          NOT NULL,
+    image_url  VARCHAR(255)          NOT NULL,
     created_at datetime              NOT NULL,
     CONSTRAINT pk_users PRIMARY KEY (user_id)
 );

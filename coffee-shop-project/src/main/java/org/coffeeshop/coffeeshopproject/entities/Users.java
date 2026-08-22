@@ -36,6 +36,8 @@ public class Users {
     @Column(name = "user_role")
     private String role;
 
+    private String image_Url;
+
     @Column(name = "created_at")
     private LocalDateTime created_At;
 
