@@ -3,10 +3,11 @@ package org.coffeeshop.coffeeshopproject.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name= "products" )
-public class Products {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,20 @@ public class Products {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId", nullable = false)
-    private Categories category;
+    private Category category;
+
+    @OneToMany(
+        mappedBy = "product",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<ProductSize> size;
+
+    @OneToMany(
+            mappedBy = "",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<OrderItem> items;
 
 }

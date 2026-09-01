@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "categories")
-public class Categories {
+public class Category {
 
 
     @Id
@@ -22,7 +22,7 @@ public class Categories {
     , cascade = CascadeType.ALL
     , orphanRemoval = true
     )
-    private List<Products> productsList;
+    private List<Product> productsList;
 
 
 }
