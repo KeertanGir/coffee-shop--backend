@@ -1,20 +1,25 @@
 package org.coffeeshop.coffeeshopproject.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "payments")
 public class Payment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String order_id;
 
     private BigDecimal amount;
 
@@ -26,5 +31,12 @@ public class Payment {
 
     @CreationTimestamp
     private LocalDateTime paid_at;
+
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
 
 }

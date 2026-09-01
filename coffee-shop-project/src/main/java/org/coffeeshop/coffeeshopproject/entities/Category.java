@@ -1,10 +1,15 @@
 package org.coffeeshop.coffeeshopproject.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
-
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "categories")
 public class Category {

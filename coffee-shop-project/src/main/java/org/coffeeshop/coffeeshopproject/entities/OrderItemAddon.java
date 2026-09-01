@@ -1,10 +1,15 @@
 package org.coffeeshop.coffeeshopproject.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.security.PrivateKey;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "order_item_addons")
 public class OrderItemAddon {

@@ -1,11 +1,16 @@
 package org.coffeeshop.coffeeshopproject.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "order")
 public class Order {
@@ -40,6 +45,14 @@ public class Order {
             orphanRemoval = true
     )
     private List<OrderItem> items;
+
+
+    @OneToMany(
+            mappedBy = "order",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Payment> payments;
 
 
 
