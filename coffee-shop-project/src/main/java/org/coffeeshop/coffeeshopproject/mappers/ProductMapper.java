@@ -1,14 +1,14 @@
 package org.coffeeshop.coffeeshopproject.mappers;
 
-import org.coffeeshop.coffeeshopproject.dtos.ProductsResponseDto;
-import org.coffeeshop.coffeeshopproject.entities.Products;
+import org.coffeeshop.coffeeshopproject.dtos.productsdtos.ProductsResponseDto;
+import org.coffeeshop.coffeeshopproject.entities.Product;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 
-    ProductsResponseDto toDto(Products products);
+    ProductsResponseDto toDto(Product products);
 
-    Products toProducts(ProductsResponseDto productsResponseDto);
+    Product toProducts(ProductsResponseDto productsResponseDto);
 
 }

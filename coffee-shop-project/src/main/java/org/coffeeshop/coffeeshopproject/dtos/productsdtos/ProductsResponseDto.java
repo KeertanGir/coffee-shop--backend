@@ -1,4 +1,4 @@
-package org.coffeeshop.coffeeshopproject.dtos;
+package org.coffeeshop.coffeeshopproject.dtos.productsdtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

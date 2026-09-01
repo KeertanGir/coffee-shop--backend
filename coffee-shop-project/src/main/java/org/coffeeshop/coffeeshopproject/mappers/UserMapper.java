@@ -1,6 +1,6 @@
 package org.coffeeshop.coffeeshopproject.mappers;
 
-import org.coffeeshop.coffeeshopproject.dtos.UserResponseDto;
+import org.coffeeshop.coffeeshopproject.dtos.userdtos.UserResponseDto;
 import org.coffeeshop.coffeeshopproject.entities.Users;
 import org.mapstruct.Mapper;
 

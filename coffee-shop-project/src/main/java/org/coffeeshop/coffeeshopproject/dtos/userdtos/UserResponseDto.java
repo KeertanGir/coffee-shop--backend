@@ -1,6 +1,5 @@
-package org.coffeeshop.coffeeshopproject.dtos;
+package org.coffeeshop.coffeeshopproject.dtos.userdtos;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
