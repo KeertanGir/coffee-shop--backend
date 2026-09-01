@@ -1,11 +1,8 @@
-package org.coffeeshop.coffeeshopproject.dtos;
+package org.coffeeshop.coffeeshopproject.dtos.categorydtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.coffeeshop.coffeeshopproject.entities.Products;
-
-import java.util.List;
 
 @Getter
 @Setter
