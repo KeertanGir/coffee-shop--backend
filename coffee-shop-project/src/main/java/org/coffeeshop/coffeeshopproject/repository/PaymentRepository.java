@@ -1,9 +1,9 @@
 package org.coffeeshop.coffeeshopproject.repository;
 
-import org.coffeeshop.coffeeshopproject.entities.Product;
+import org.coffeeshop.coffeeshopproject.entities.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductsRepository extends JpaRepository<Product, Long> {
+public interface PaymentRepository extends JpaRepository<Payment, Long> {
 }
