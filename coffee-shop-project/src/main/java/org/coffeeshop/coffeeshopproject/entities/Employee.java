@@ -28,8 +28,9 @@ public class Employee {
 
     private String role;
 
-    private BigDecimal Salary;
+    private BigDecimal salary;
 
+    @Column( name = "joining_date" , nullable = false)
     private LocalDateTime joiningDate;
 
     private Boolean active;

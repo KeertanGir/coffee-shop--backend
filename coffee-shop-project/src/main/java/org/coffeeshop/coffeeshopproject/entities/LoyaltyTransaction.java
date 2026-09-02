@@ -18,12 +18,14 @@ public class LoyaltyTransaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column( name = "order_id", nullable = false )
     private Long orderId;
 
     private Short points;
 
-    private String Type;
+    private String type;
 
+    @Column( name = "created_at" , nullable = false)
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)

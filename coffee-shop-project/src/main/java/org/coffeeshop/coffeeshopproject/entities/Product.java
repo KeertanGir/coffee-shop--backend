@@ -22,8 +22,13 @@ public class Product {
 
     private String name;
     private String description;
-    private BigDecimal base_price;
-    private String image_url;
+
+    @Column( name = "base_price", nullable = false)
+    private BigDecimal basePrice;
+
+    @Column( name = "image_url", nullable = false)
+    private String imageUrl;
+    
     private Boolean available;
 
 

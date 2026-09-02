@@ -2,6 +2,7 @@ package org.coffeeshop.coffeeshopproject.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
@@ -16,6 +17,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column( name = "quantity_required" , nullable = false)
     private String quantityRequired;
 
     @ManyToOne(fetch = FetchType.LAZY)

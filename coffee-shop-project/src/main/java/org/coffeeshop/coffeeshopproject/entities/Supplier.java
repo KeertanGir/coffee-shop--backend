@@ -21,7 +21,7 @@ public class Supplier {
 
     private String name;
 
-    private String Company;
+    private String company;
 
     private String phone;
 

@@ -21,13 +21,14 @@ public class StockTransaction {
 
     private String Type;
 
-    private String Quantity;
+    private String quantity;
 
     private String reference;
 
-    private LocalDateTime created_at;
+    @Column( name = "created_at" , nullable = false)
+    private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "inventory_item.id", nullable = false)
+    @JoinColumn(name = "inventory_item_id", nullable = false)
     private InventoryItem inventoryItem;
 }

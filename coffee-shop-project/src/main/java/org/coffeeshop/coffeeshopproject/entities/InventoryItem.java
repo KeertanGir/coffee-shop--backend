@@ -26,8 +26,10 @@ public class InventoryItem {
 
     private Integer unit;
 
+    @Column( name = "minimum_stock" )
     private Integer minimumStock;
 
+    @Column( name = "cost_per_unit" , nullable = false)
     private BigDecimal costPerUnit;
 
 

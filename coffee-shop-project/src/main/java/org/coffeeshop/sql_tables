@@ -1,0 +1,359 @@
+Hibernate:
+    alter table inventory_item
+       drop
+       foreign key FKbbeb6gxfhibbcuk7ya697ef14
+Hibernate:
+    alter table loyalty_transactions
+       drop
+       foreign key FKgjaecj4l1n9mkh4k0r2q15v0k
+Hibernate:
+    alter table order_item
+       drop
+       foreign key FKt4dc2r9nbvbujrljv3e23iibt
+Hibernate:
+    alter table order_item
+       drop
+       foreign key FKc5uhmwioq5kscilyuchp4w49o
+Hibernate:
+    alter table order_item
+       drop
+       foreign key FK14hq1hswv0w2imwhdgh8w5y0c
+Hibernate:
+    alter table order_item_addons
+       drop
+       foreign key FK6ahnnja8r509li0wd5r81eqsr
+Hibernate:
+    alter table order_item_addons
+       drop
+       foreign key FK4te650m2fr0y95es45fp86323
+Hibernate:
+    alter table orders
+       drop
+       foreign key FKpxtb8awmi0dk6smoh2vp1litg
+Hibernate:
+    alter table payments
+       drop
+       foreign key FK81gagumt0r8y3rmudcgpbk42l
+Hibernate:
+    alter table product_sizes
+       drop
+       foreign key FK4isa0j51hpdn7cx04m831jic4
+Hibernate:
+    alter table products
+       drop
+       foreign key FKog2rp4qthbtt2lfyhfo32lsw9
+Hibernate:
+    alter table recipes
+       drop
+       foreign key FK2e6xx12fuc9qgxs7qaxso0fdl
+Hibernate:
+    alter table recipes
+       drop
+       foreign key FK5ewephkw3pi9x9ahdd6ayhkrv
+Hibernate:
+    alter table shifts
+       drop
+       foreign key FKtbsbc3nmr4b1vlwtnd944q9u7
+Hibernate:
+    alter table stock_transactions
+       drop
+       foreign key FKan1slt9oqsp5pk71vc4kw6tom
+Hibernate:
+    drop table if exists addons
+Hibernate:
+    drop table if exists categories
+Hibernate:
+    drop table if exists customers
+Hibernate:
+    drop table if exists discouts
+Hibernate:
+    drop table if exists employees
+Hibernate:
+    drop table if exists inventory_item
+Hibernate:
+    drop table if exists loyalty_transactions
+Hibernate:
+    drop table if exists order_item
+Hibernate:
+    drop table if exists order_item_addons
+Hibernate:
+    drop table if exists orders
+Hibernate:
+    drop table if exists payments
+Hibernate:
+    drop table if exists product_sizes
+Hibernate:
+    drop table if exists products
+Hibernate:
+    drop table if exists recipes
+Hibernate:
+    drop table if exists shifts
+Hibernate:
+    drop table if exists stock_transactions
+Hibernate:
+    drop table if exists suppliers
+Hibernate:
+    drop table if exists users
+Hibernate:
+    create table addons (
+        available bit,
+        price decimal(38,2),
+        id bigint not null auto_increment,
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table categories (
+        active bit,
+        id bigint not null auto_increment,
+        description varchar(255),
+        image_url varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table customers (
+        total_spend decimal(38,2),
+        created_at datetime(6),
+        id bigint not null auto_increment,
+        address varchar(255),
+        email varchar(255),
+        loyalty_point varchar(255),
+        name varchar(255),
+        phone varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table discouts (
+        active bit,
+        end_date date not null,
+        start_date date not null,
+        id bigint not null auto_increment,
+        code varchar(255),
+        discount_type varchar(255),
+        minimum_order varchar(255) not null,
+        value varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table employees (
+        active bit,
+        salary decimal(38,2),
+        id bigint not null auto_increment,
+        joining_date datetime(6) not null,
+        email varchar(255),
+        name varchar(255),
+        phone varchar(255),
+        role varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table inventory_item (
+        cost_per_unit decimal(38,2) not null,
+        minimum_stock integer,
+        quantity integer,
+        unit integer,
+        id bigint not null auto_increment,
+        supplier_id bigint not null,
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table loyalty_transactions (
+        points smallint,
+        created_at datetime(6) not null,
+        customer_id bigint not null,
+        id bigint not null auto_increment,
+        order_id bigint not null,
+        type varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table order_item (
+        quantity integer not null,
+        sub_total decimal(38,2) not null,
+        unit_price decimal(38,2) not null,
+        id bigint not null auto_increment,
+        order_id bigint not null,
+        product_id bigint not null,
+        size_id bigint,
+        special_instruction varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table order_item_addons (
+        price decimal(38,2),
+        addon_id bigint not null,
+        id bigint not null auto_increment,
+        order_item_id bigint not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table orders (
+        discount decimal(38,2),
+        sub_total decimal(38,2) not null,
+        tax decimal(38,2),
+        total decimal(38,2),
+        customer_id bigint,
+        id bigint not null auto_increment,
+        order_name varchar(255) not null,
+        order_type varchar(255) not null,
+        payment_status varchar(255) not null,
+        status varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table payments (
+        amount decimal(38,2),
+        id bigint not null auto_increment,
+        order_id bigint not null,
+        paid_at datetime(6) not null,
+        payment_method varchar(255) not null,
+        payment_status varchar(255) not null,
+        transection_id varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table product_sizes (
+        price decimal(38,2),
+        id bigint not null auto_increment,
+        product_id bigint not null,
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table products (
+        available bit,
+        base_price decimal(38,2) not null,
+        category_id bigint not null,
+        id bigint not null auto_increment,
+        description varchar(255),
+        image_url varchar(255) not null,
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table recipes (
+        id bigint not null auto_increment,
+        inventory_item_id bigint not null,
+        product_id bigint not null,
+        quantity_required varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table shifts (
+        end_time time(0) not null,
+        shift_date date not null,
+        start_time time(0) not null,
+        employee_id bigint not null,
+        id bigint not null auto_increment,
+        status varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table stock_transactions (
+        created_at datetime(6) not null,
+        id bigint not null auto_increment,
+        inventory_item_id bigint not null,
+        quantity varchar(255),
+        reference varchar(255),
+        type varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table suppliers (
+        id bigint not null auto_increment,
+        address varchar(255),
+        company varchar(255),
+        email varchar(255),
+        name varchar(255),
+        phone varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate:
+    create table users (
+        created_at datetime(6),
+        user_id bigint not null auto_increment,
+        email varchar(255),
+        image_url varchar(255),
+        password varchar(255),
+        user_phone varchar(255),
+        user_role varchar(255),
+        username varchar(255),
+        primary key (user_id)
+    ) engine=InnoDB
+Hibernate:
+    alter table inventory_item
+       add constraint FKbbeb6gxfhibbcuk7ya697ef14
+       foreign key (supplier_id)
+       references suppliers (id)
+Hibernate:
+    alter table loyalty_transactions
+       add constraint FKgjaecj4l1n9mkh4k0r2q15v0k
+       foreign key (customer_id)
+       references customers (id)
+Hibernate:
+    alter table order_item
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt
+       foreign key (order_id)
+       references orders (id)
+Hibernate:
+    alter table order_item
+       add constraint FKc5uhmwioq5kscilyuchp4w49o
+       foreign key (product_id)
+       references products (id)
+Hibernate:
+    alter table order_item
+       add constraint FK14hq1hswv0w2imwhdgh8w5y0c
+       foreign key (size_id)
+       references product_sizes (id)
+Hibernate:
+    alter table order_item_addons
+       add constraint FK6ahnnja8r509li0wd5r81eqsr
+       foreign key (addon_id)
+       references addons (id)
+Hibernate:
+    alter table order_item_addons
+       add constraint FK4te650m2fr0y95es45fp86323
+       foreign key (order_item_id)
+       references order_item (id)
+Hibernate:
+    alter table orders
+       add constraint FKpxtb8awmi0dk6smoh2vp1litg
+       foreign key (customer_id)
+       references customers (id)
+Hibernate:
+    alter table payments
+       add constraint FK81gagumt0r8y3rmudcgpbk42l
+       foreign key (order_id)
+       references orders (id)
+Hibernate:
+    alter table product_sizes
+       add constraint FK4isa0j51hpdn7cx04m831jic4
+       foreign key (product_id)
+       references products (id)
+Hibernate:
+    alter table products
+       add constraint FKog2rp4qthbtt2lfyhfo32lsw9
+       foreign key (category_id)
+       references categories (id)
+Hibernate:
+    alter table recipes
+       add constraint FK2e6xx12fuc9qgxs7qaxso0fdl
+       foreign key (inventory_item_id)
+       references inventory_item (id)
+Hibernate:
+    alter table recipes
+       add constraint FK5ewephkw3pi9x9ahdd6ayhkrv
+       foreign key (product_id)
+       references products (id)
+Hibernate:
+    alter table shifts
+       add constraint FKtbsbc3nmr4b1vlwtnd944q9u7
+       foreign key (employee_id)
+       references employees (id)
+Hibernate:
+    alter table stock_transactions
+       add constraint FKan1slt9oqsp5pk71vc4kw6tom
+       foreign key (inventory_item_id)
+       references inventory_item (id)

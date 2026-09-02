@@ -20,6 +20,8 @@ public class Category {
     private Long id;
     private String name;
     private String description;
+
+    @Column( name = "image_url" )
     private String imageUrl;
     private Boolean active;
 

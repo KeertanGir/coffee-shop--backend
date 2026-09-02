@@ -29,10 +29,13 @@ public class Customer {
 
     private String address;
 
+    @Column( name = "loyalty_point")
     private String loyaltyPoint;
 
+    @Column( name = "total_spend" )
     private BigDecimal totalSpend;
 
+    @Column( name = "created_at" )
     private LocalDateTime createdAt;
 
     @OneToMany(

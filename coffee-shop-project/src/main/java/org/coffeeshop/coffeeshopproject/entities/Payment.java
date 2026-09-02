@@ -23,18 +23,20 @@ public class Payment {
 
     private BigDecimal amount;
 
+    @Column( name = "payment_method" , nullable = false)
     private String PaymentMethod;
 
+    @Column( name = "payment_status" , nullable = false)
     private String paymentStatus;
 
-    private String transection_id;
+    @Column( name = "transection_id")
+    private String transectionId;
 
     @CreationTimestamp
-    private LocalDateTime paid_at;
+    @Column( name = "paid_at" , nullable = false )
+    private LocalDateTime paidAt;
 
-    @ManyToOne(
-            fetch = FetchType.LAZY
-    )
+    @ManyToOne( fetch = FetchType.LAZY )
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 

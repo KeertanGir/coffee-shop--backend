@@ -12,20 +12,23 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String order_name;
+    @Column( name = "order_name", nullable = false )
+    private String orderName;
 
-    private String order_type;
+    @Column( name = "order_type" , nullable = false)
+    private String orderType;
 
     private String status;
 
-    private BigDecimal subtotal;
+    @Column( name = "sub_total" , nullable = false)
+    private BigDecimal subTotal;
 
     private BigDecimal tax;
 
@@ -33,7 +36,8 @@ public class Order {
 
     private BigDecimal total;
 
-    private String payment_status;
+    @Column( name = "payment_status" , nullable = false)
+    private String paymentStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")

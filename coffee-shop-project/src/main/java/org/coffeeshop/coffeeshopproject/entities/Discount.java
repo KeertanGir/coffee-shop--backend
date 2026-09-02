@@ -20,14 +20,18 @@ public class Discount {
 
     private String Code;
 
+    @Column( name = "discount_type")
     private String discountType;
 
     private String value;
 
+    @Column( name = "minimum_order" , nullable = false)
     private String minimumOrder;
 
+    @Column( name = "start_date" , nullable = false )
     private LocalDate startDate;
 
+    @Column( name = "end_date", nullable = false)
     private LocalDate endDate;
 
     private Boolean active;
