@@ -26,4 +26,6 @@ public class UserRequestDto {
     @NotBlank(message = "Role is Required")
     private String role;
 
+    private String imageUrl;
+
 }

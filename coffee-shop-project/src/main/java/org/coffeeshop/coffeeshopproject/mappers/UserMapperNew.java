@@ -4,10 +4,10 @@ import org.coffeeshop.coffeeshopproject.dtos.userdtos.UserResponseDto;
 import org.coffeeshop.coffeeshopproject.entities.Users;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
-public interface UserMapper {
+@Mapper( componentModel = "spring")
+public interface UserMapperNew {
 
-    Users toUser(UserResponseDto userResponseDto);
+    Users toEntity(UserResponseDto userResponseDto);
 
     UserResponseDto toDto(Users users);
 
