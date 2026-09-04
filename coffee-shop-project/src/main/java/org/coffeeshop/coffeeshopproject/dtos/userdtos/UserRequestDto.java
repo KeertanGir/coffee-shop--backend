@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.coffeeshop.coffeeshopproject.validations.constraint.Lowercase;
 
 @Data
 public class UserRequestDto {
@@ -14,6 +15,7 @@ public class UserRequestDto {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Email Must be Correct")
+    @Lowercase
     private String email;
 
     @NotBlank(message = "Password is Required")
