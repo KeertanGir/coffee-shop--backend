@@ -1,12 +1,16 @@
 package org.coffeeshop.coffeeshopproject.service;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
+import org.coffeeshop.coffeeshopproject.dtos.userdtos.UserRequestDto;
 import org.coffeeshop.coffeeshopproject.dtos.userdtos.UserResponseDto;
+import org.coffeeshop.coffeeshopproject.entities.Users;
 import org.coffeeshop.coffeeshopproject.exceptions.exceps.UserNotFoundException;
 import org.coffeeshop.coffeeshopproject.mappers.UserMapperNew;
 import org.coffeeshop.coffeeshopproject.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -28,7 +32,6 @@ public class UserService {
                 .map(userMapper::toDto)
                 .toList();
 
-//
 //        userList.forEach(user -> {
 //            System.out.println("ID       : " + user.getId());
 //            System.out.println("NAME     : " + user.getName());
@@ -59,5 +62,15 @@ public class UserService {
         }
 
         return dtoList;
+    }
+
+    public Users createUser(@Valid UserRequestDto userRequestDto) {
+        Users user = userMapper.toEntity(userRequestDto);
+        user.setCreatedAt(LocalDateTime.now());
+        return userRepository.save(user);
+    }
+
+    public void removeUserById(Long id) {
+        userRepository.deleteById(id);
     }
 }
